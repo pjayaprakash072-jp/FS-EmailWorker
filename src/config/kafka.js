@@ -23,3 +23,5 @@ const kafka = new Kafka(
     requestTimeout: 30000
   }
 )
+
+module.exports = kafka;
