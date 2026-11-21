@@ -1,6 +1,11 @@
 const {Kafka} = require('kafkajs');
+const fs = require('fs');
+const path = require('path');
 
-const ca_cert = require('./certs/ca.pem')
+const ca_cert = fs.readFileSync(
+  path.join(__dirname,"certs","ca.pem"),
+  "utf-8"
+);// load file completely (sync), normal readFile is async.
 const kafka = new Kafka(
   {
     clientId: process.env.KAFKA_CLIENT_ID,
